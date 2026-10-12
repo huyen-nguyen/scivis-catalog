@@ -9,10 +9,11 @@
         color-scheme: light;
         --ink: #172832;
         --muted: #52626d;
-        --blue: #1454a2;
+        --blue: #08198e;
+        --primary: linear-gradient(95deg,#08198e,#05023c);
         --line: #cbd3d8;
-        --teal: #12665d;
-        --pale: #edf4f3
+        --teal: #08198e;
+        --pale: #eef0fa
       }
 
       * {
@@ -27,7 +28,7 @@
         margin: 0;
         background: #fff;
         color: var(--ink);
-        font: 15px/1.5 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif
+        font: 15px/1.5 Helvetica, Arial, sans-serif
       }
 
       button,
@@ -76,9 +77,9 @@
       }
 
       header {
-        background: #102d3b;
+        background: var(--primary);
         color: white;
-        border-top: 5px solid #3dba9d;
+        border-top: 5px solid #08198e;
         padding: 26px 3.2% 30px
       }
 
@@ -89,7 +90,7 @@
         align-items: center;
         gap: 20px;
         font-size: 12px;
-        text-transform: uppercase;
+        text-transform: none;
         letter-spacing: 1.8px;
         color: #b9d8df
       }
@@ -102,9 +103,9 @@
       }
 
       h1 {
-        font-family: Georgia, serif;
+        font-family: Helvetica, Arial, sans-serif;
         font-size: clamp(29px, 3.5vw, 47px);
-        font-weight: normal;
+        font-weight: 800;
         margin: 22px 0 8px;
         line-height: 1.1
       }
@@ -119,18 +120,8 @@
         padding: 25px 3.2% 60px
       }
 
-      .planbar {
-        display: flex;
-        align-items: end;
-        justify-content: space-between;
-        gap: 18px;
-        margin-bottom: 16px
-      }
 
-      .planbar h2 {
-        font-size: 18px;
-        margin: 0 0 3px
-      }
+
 
       .muted {
         color: var(--muted)
@@ -140,12 +131,6 @@
         font-size: 12px
       }
 
-      .plan-controls {
-        display: flex;
-        align-items: end;
-        gap: 10px;
-        flex-wrap: wrap
-      }
 
       label.field {
         min-width: 0;
@@ -155,7 +140,7 @@
         gap: 5px;
         font-size: 12px;
         color: var(--muted);
-        font-weight: 600
+        font-weight: 700
       }
 
       input[type=search],
@@ -174,61 +159,23 @@
         max-width: 100%
       }
 
-      .stats {
-        display: grid;
-        grid-template-columns: 1.25fr 1.15fr 1.15fr .8fr;
-        border: 1px solid var(--line);
-        border-radius: 7px;
-        overflow: hidden
+      input[type=search],
+      input[type=search]::placeholder,
+      select,
+      option {
+        font-weight: 400
       }
 
-      .stat {
-        padding: 18px 20px;
-        border-right: 1px solid var(--line);
-        min-width: 0
-      }
 
-      .stat:last-child {
-        border: 0;
-        background: #fff8eb
-      }
 
-      .stat:first-child {
-        background: var(--pale)
-      }
 
-      .stat label {
-        font-size: 11px;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        display: block;
-        color: var(--muted)
-      }
 
-      .stat strong {
-        display: block;
-        font-size: 27px;
-        margin: 5px 0;
-        font-weight: 650;
-        line-height: 1.25
-      }
 
-      .stat .sub {
-        font-size: 12px;
-        color: var(--muted);
-        overflow-wrap: anywhere
-      }
+
 
       .notice {
-        padding: 12px 15px;
-        background: #f7f9fa;
-        border-left: 3px solid #c69330;
         margin: 13px 0 22px;
         font-size: 13px
-      }
-
-      .notice strong {
-        color: #765417
       }
 
       .toolbar {
@@ -236,7 +183,7 @@
         gap: 12px;
         align-items: end;
         flex-wrap: wrap;
-        margin: 24px 0 16px
+        margin: 0 0 16px
       }
 
       .toolbar .search {
@@ -251,6 +198,22 @@
         padding: 12px 0;
         border-top: 1px solid var(--line);
         font-size: 13px
+      }
+
+      .selection-summary {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        font-size: 18px;
+        gap: 4px 20px
+      }
+
+      .selection-summary > span {
+        white-space: nowrap
+      }
+
+      #known-sub {
+        margin-top: 4px
       }
 
       .table-actions .buttons {
@@ -286,11 +249,11 @@
       }
 
       col:nth-child(3) {
-        width: 32%
+        width: 28%
       }
 
       col:nth-child(4) {
-        width: 14%
+        width: 18%
       }
 
       thead {
@@ -302,11 +265,37 @@
 
       th {
         text-align: left;
-        font-size: 11px;
-        text-transform: uppercase;
+        font-size: 14px;
+        text-transform: none;
         letter-spacing: 1px;
         padding: 13px 16px;
         border-bottom: 1px solid #b9c5cd
+      }
+
+      .column-sort {
+        border: 0;
+        padding: 0;
+        background: transparent;
+        font: inherit;
+        letter-spacing: inherit;
+        text-align: left
+      }
+
+      .column-sort:hover {
+        background: transparent;
+        color: var(--blue)
+      }
+
+      .sort-arrow {
+        display: inline-block;
+        margin-left: 4px
+      }
+
+      .collection-sort {
+        display: block;
+        margin-top: 5px;
+        font-size: 10px;
+        color: var(--muted)
       }
 
       td {
@@ -351,7 +340,7 @@
         align-items: baseline;
         line-height: 1.4;
         font-size: 16px;
-        font-family: Georgia, serif
+        font-family: Helvetica, Arial, sans-serif
       }
 
       .expand:hover {
@@ -360,7 +349,7 @@
       }
 
       .triangle {
-        font-family: system-ui;
+        font-family: Helvetica, Arial, sans-serif;
         font-size: 11px;
         display: inline-block;
         width: 10px;
@@ -381,20 +370,20 @@
       }
 
       .size {
-        font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+        font-family: Helvetica, Arial, sans-serif;
         font-size: 13px
       }
 
       .scope {
         font-size: 11px;
         color: var(--muted);
-        margin-bottom: 4px;
+        margin: 3px 0 0;
         overflow-wrap: anywhere
       }
 
       .pill {
         display: inline-block;
-        font: 10px/1.7 system-ui, sans-serif;
+        font: 10px/1.7 Helvetica, Arial, sans-serif;
         border-radius: 3px;
         padding: 0 5px;
         background: #d9eae5;
@@ -432,7 +421,7 @@
 
       .details-grid h3 {
         font-size: 12px;
-        text-transform: uppercase;
+        text-transform: none;
         letter-spacing: 1px;
         margin: 0 0 8px
       }
@@ -514,24 +503,10 @@
         background: #fff3d0
       }
 
-      .working {
-        border-top: 1px solid var(--line);
-        padding-top: 13px;
-        margin-top: 14px;
-        font-size: 13px
-      }
-
       .flag {
         color: #8a5815
       }
 
-      .checkfilter {
-        display: flex;
-        gap: 6px;
-        align-items: center;
-        font-size: 12px;
-        padding-bottom: 10px
-      }
 
       #live {
         font-size: 12px;
@@ -547,34 +522,16 @@
           padding: 20px
         }
 
-        .stats {
-          grid-template-columns: 1fr 1fr
-        }
 
-        .stat {
-          border-bottom: 1px solid var(--line)
-        }
 
-        .stat:nth-child(2) {
-          border-right: 0
-        }
 
-        .planbar {
-          display: block
-        }
 
-        .plan-controls {
-          margin-top: 15px
-        }
 
         .mast {
           letter-spacing: 1px;
           font-size: 10px
         }
 
-        .stat strong {
-          font-size: 22px
-        }
 
         .toolbar {
           gap: 10px
@@ -605,13 +562,7 @@
           flex-direction: column
         }
 
-        .stat {
-          padding: 14px
-        }
 
-        .checkfilter {
-          padding: 0
-        }
       }
 
       @media(max-width:650px) {
@@ -626,6 +577,17 @@
         }
 
         thead {
+          display: block;
+          position: static
+        }
+
+        thead tr {
+          display: grid;
+          grid-template-columns: minmax(0, 1fr) minmax(0, 1fr)
+        }
+
+        thead th:nth-child(2),
+        thead th:nth-child(4) {
           display: none
         }
 
@@ -673,7 +635,6 @@
         }
 
         .toolbar,
-        .plan-controls,
         .table-actions .buttons,
         .dataset-title input,
         .method,
@@ -681,9 +642,6 @@
           display: none
         }
 
-        .stats {
-          break-inside: avoid
-        }
 
         .table-container {
           max-height: none;
@@ -722,63 +680,29 @@
   </head>
   <body>
     <header>
-      <div class="mast"><span>SCIVIS / DATA DIRECTORY</span><a href="#method">Sources &amp; size methodology ↓</a></div>
-      <h1>Scientific Visualization Catalog</h1>
-      <p>Browse volumes, simulations and scientific collections. Compare sizes, open download links, and build a storage plan with traceable totals.</p>
+      <h1><b>Scientific Visualization Catalog</b></h1>
+      <p>Browse scivis collections, explore datasets, and view estimated storage requirements before downloading.</p>
     </header>
     <main>
-      <section aria-label="Selected download totals">
-        <div class="planbar">
-          <div>
-            <h2>Your download plan <span class="muted" id="selected-count"></span></h2>
-            <div class="muted small">Totals follow selected entries, including those hidden by filters.</div>
-          </div>
-          <div class="plan-controls"><label class="field">Selection preset<select id="preset">
-                <option value="default">Spreadsheet selection + LANL</option>
-                <option value="spreadsheet">Original spreadsheet selection</option>
-                <option value="raw">55 Open SciVis RAW volumes</option>
-                <option value="lanl">11 LANL collections</option>
-                <option value="packages">All file packages</option>
-                <option value="none">Clear selection</option>
-                <option value="custom" disabled>Custom selection</option>
-              </select></label><button id="export">Export selected JSON</button></div>
-        </div>
-        <div class="stats" aria-live="polite">
-          <div class="stat"><label>Known download subtotal</label><strong id="known"></strong>
-            <div class="sub" id="known-sub"></div>
-          </div>
-          <div class="stat"><label>Reported file bytes</label><strong id="exact"></strong>
-            <div class="sub" id="exact-sub"></div>
-          </div>
-          <div class="stat"><label>Reported / rounded estimates</label><strong id="approx"></strong>
-            <div class="sub" id="approx-sub"></div>
-          </div>
-          <div class="stat"><label>Unknown download sizes</label><strong id="unknown"></strong>
-            <div class="sub" id="unknown-sub"></div>
-          </div>
-        </div>
-        <div id="total-note" class="notice"></div>
-        <div class="working" id="working"></div>
-      </section>
       <div class="toolbar"><label class="field search">Find a dataset<input id="search" type="search" placeholder="Search name, domain, dimensions or ID…"></label><label class="field">Collection<select id="collection">
-            <option value="">All collections</option>
+            <option value="" selected>All collections</option>
           </select></label><label class="field">Download size evidence<select id="evidence">
             <option value="">All evidence</option>
-            <option value="exact">Reported size / bytes</option>
+            <option value="exact" selected>Reported size / bytes</option>
             <option value="approx">Other rounded estimates</option>
-            <option value="unknown">Unknown / remote</option>
-          </select></label><label class="field">Total / converted units<select id="units">
-            <option value="binary">Binary · MiB / GiB</option>
-            <option value="decimal">Decimal · MB / GB</option>
-          </select></label><label class="field">Sort by<select id="sort">
-            <option value="name">Name A–Z</option>
-            <option value="size-desc">Largest download first</option>
-            <option value="size-asc">Smallest download first</option>
-            <option value="collection">Collection</option>
-          </select></label><label class="checkfilter"><input type="checkbox" id="selected-only"> Selected only</label></div>
-      <div class="table-actions"><span id="results" role="status"></span>
-        <div class="buttons"><button id="select-visible">Select visible</button><button id="clear-visible">Clear visible</button><button id="collapse">Collapse details</button><button id="reset-filters">Reset filters</button></div>
+            <option value="unknown">Unverified / remote</option>
+          </select></label><label class="field">Download size units<select id="units">
+            <option value="binary">Binary (MiB / GiB)</option>
+            <option value="decimal" selected>Decimal (MB / GB)</option>
+          </select></label></div>
+      <div class="table-actions">
+        <div aria-live="polite">
+          <div class="selection-summary"><span id="results"></span><span id="known"></span></div>
+          <div class="muted small" id="known-sub" hidden></div>
+        </div>
+        <div class="buttons"><button id="select-all" title="Select all visible entries" aria-label="Select all visible entries">Select all</button><button id="deselect-all" title="Deselect all visible entries" aria-label="Deselect all visible entries">Deselect all</button></div>
       </div>
+      <div id="total-note" class="notice" hidden></div>
       <div id="live" role="status"></div>
       <div class="table-container" aria-label="Dataset table">
         <table>
@@ -791,10 +715,10 @@
           </colgroup>
           <thead>
             <tr>
-              <th scope="col">Dataset / include in total</th>
+              <th scope="col" aria-sort="ascending"><button class="column-sort" data-sort="name" data-label="Dataset">Dataset <span class="sort-arrow" aria-hidden="true">↑</span></button><button class="column-sort collection-sort" data-sort="collection" data-label="Collection">Collection <span class="sort-arrow" aria-hidden="true">↕</span></button></th>
               <th scope="col">Description</th>
-              <th scope="col">Dimensions or scope · download size</th>
-              <th scope="col">Download / access</th>
+              <th scope="col"><button class="column-sort" data-sort="size" data-label="Size/Dimensions">Size/Dimensions<span class="sort-arrow" aria-hidden="true">↕</span></button></th>
+              <th scope="col">Download/Access</th>
             </tr>
           </thead>
           <tbody id="placeholder">
@@ -808,24 +732,24 @@
       </noscript>
       <details class="method" id="method">
         <summary>How sizes, downloads and totals are verified</summary>
-        <p><b>Scope:</b> 104 entries: the 93 supplied spreadsheet entries plus 11 LANL scientific collections. The default plan preserves the spreadsheet’s 75 selected entries and adds the 11 LANL collections. The “All file packages” preset includes additional large packages but excludes remote services, unspecified COVIS scope, and the HD(CP)² single-step subset when the full series is selected.</p>
+        <p><b>Scope:</b> 103 entries: 92 datasets consolidated from the 93 supplied spreadsheet records, plus 11 LANL scientific collections. The default plan selects all 87 entries matching All collections and Reported size / bytes. Changing any dropdown replaces the previous selection with all entries matching the current filters and recalculates the total download size. Searching changes which entries are shown; totals include selected entries hidden by the search. Use Select all or Deselect all to change the entries currently visible in the table.</p>
         <ul>
-          <li><b>Reported size:</b> green labels preserve source-reported sizes. All 104 entries have a source-size audit in their expanded details. Green identifies provenance, not byte-exact precision. Open SciVis uses the supplied HTML snapshot; the other entries use the linked publisher metadata and listings.</li>
+          <li><b>Reported size:</b> green labels preserve source-reported sizes. All 103 entries have a source-size audit in their expanded details. Green identifies provenance, not byte-exact precision. Open SciVis uses the supplied HTML snapshot; the other entries use the linked publisher metadata and listings.</li>
           <li><b>Components and files:</b> when the source lists separate sizes, the row preserves those components or explicitly shows a per-file range. Numeric totals sum the reported component values and remain estimates; these sums are not presented as publisher-reported collection totals.</li>
           <li><b>Units:</b> source labels do not change when display units are switched. Conversions use decimal units unless documented otherwise. Open SciVis uses binary units despite kB/MB/GB labels; LANL Apache K/M/G/T listings use binary units. Rounded values retain an ≈ marker in totals.</li>
           <li><b>Hosted data:</b> JHTDB reported capacities are explicitly labeled and excluded from download totals. Missing collection totals, variable file examples, and calculated payload sizes are not relabeled as reported download totals.</li>
           <li><b>Unknown:</b> missing values are never treated as zero. A subtotal with unknown entries is incomplete. Remote database capacities and payloads for one field/time unit stay outside local totals.</li>
-          <li><b>Duplicates:</b> archive and expanded LANL copies are not added together. HEAT uses full CYL fp16 plus original PLI archives. HD(CP)² single-step and full-series selections are mutually exclusive. Bunny CT, brain MRI and Miranda variants remain separate file representations; they may overlap scientifically.</li>
+          <li><b>Duplicates:</b> archive and expanded LANL copies are not added together. HEAT uses full CYL fp16 plus original PLI archives. HD(CP)² has one entry with two download options; only the chosen option is counted. Bunny CT, brain MRI and Miranda variants remain separate file representations; they may overlap scientifically.</li>
           <li><b>Working storage:</b> each row identifies its scope: scalar payload, stored data files, or an unpacked estimate. Expanded HDF5 alternatives are kept separate from archive download sizes. These values do not establish complete extraction, peak disk-space or memory requirements.</li>
           <li><b>Links:</b> “Download RAW” and “Download archive” target files; “Download page” and “Browse files” open publisher listings. Registration and service links are labeled. Sources were checked on 8 October 2026 UTC; some responses are cached. Reported byte lengths came from the retrieval service’s Content-Length limit messages. Archive content-type responses confirm a file target but do not verify its full transfer. Fifteen mantle-convection part links returned HTTP 404. Full binary transfers and checksums remain unverified.</li>
         </ul>
-        <p><b>Main sources:</b><a href="http://klacansky.com/open-scivis-datasets/" target="_blank" rel="noopener">Open SciVis</a> · <a href="https://github.com/sci-visus/open-scivis-datasets/blob/main/test.py" target="_blank" rel="noopener">Maintained RAW manifest</a> · <a href="https://oceans11.lanl.gov/" target="_blank" rel="noopener">LANL Oceans 11</a> · <a href="https://sdrbench.github.io/datasets.html" target="_blank" rel="noopener">SDRBench</a>. Expand any row for its specific source and size basis.</p>
+        <p><b>Main sources: </b><a href="http://klacansky.com/open-scivis-datasets/" target="_blank" rel="noopener">Open SciVis</a>, <a href="https://github.com/sci-visus/open-scivis-datasets/blob/main/test.py" target="_blank" rel="noopener">Maintained RAW manifest</a>, <a href="https://oceans11.lanl.gov/" target="_blank" rel="noopener">LANL Oceans 11</a>, <a href="https://sdrbench.github.io/datasets.html" target="_blank" rel="noopener">SDRBench</a>. Expand any row for its specific source and size basis.</p>
       </details>
-      <footer><span>Source-size audit: all 104 entries · 12 Oct 2026 UTC · Prior link checks: 08 Oct 2026 UTC · Cite the original dataset authors.</span><span>Converted units: 1 GB = 10⁹ bytes · 1 GiB = 2³⁰ bytes · Open SciVis source labels retain publisher notation · No dataset files are hosted here.</span></footer>
+      <footer><span>Source-size audit: all 103 entries on 12 Oct 2026 UTC. Prior link checks: 08 Oct 2026 UTC. Cite the original dataset authors.</span><span>Converted units: 1 GB = 10⁹ bytes; 1 GiB = 2³⁰ bytes; Open SciVis source labels remain publisher notation. No dataset files are hosted here.</span></footer>
     </main>
     <script id="catalog-data" type="application/json">
 {
-  "version": 5,
+  "version": 6,
   "checkedUTC": "2026-10-08",
   "title": "Scientific Visualization Catalog",
   "records": [
@@ -3634,7 +3558,7 @@
       "format": "TGZ, 96 binary slabs",
       "packaging": "Archive",
       "inputSelected": false,
-      "defaultSelected": false,
+      "defaultSelected": true,
       "downloadBytes": null,
       "downloadApproxBytes": 106000000000,
       "workingBytes": 115964116992,
@@ -3878,7 +3802,7 @@
       "format": "TGZ / ZIP, NetCDF",
       "packaging": "Archive",
       "inputSelected": false,
-      "defaultSelected": false,
+      "defaultSelected": true,
       "downloadBytes": null,
       "downloadApproxBytes": 64000000000,
       "workingBytes": null,
@@ -3916,74 +3840,16 @@
       "sizeAuditCheckedUTC": "2026-10-12"
     },
     {
-      "id": "SV045",
-      "name": "HD(CP)2, one LON/LAT time step",
-      "collection": "SciVis contests",
-      "domain": "Weather",
-      "description": "Weather dataset.",
-      "scope": "One time step, 2D + 3D products",
-      "format": "NetCDF",
-      "packaging": "Uncompressed",
-      "inputSelected": false,
-      "defaultSelected": false,
-      "downloadBytes": null,
-      "downloadApproxBytes": 12081000000,
-      "workingBytes": null,
-      "workingApproxBytes": 12081000000,
-      "remoteApproxBytes": null,
-      "unitPayloadBytes": null,
-      "basis": "Reported size: 81 MB + 12 GB. The source reports sizes for the individual components, preserved here separately. The numeric subtotal sums these rounded values and is not itself a reported size. Rounded source values are converted only for sorting and estimated totals; no dimensions-based download size is used.",
-      "workingBasis": "Publisher-rounded size, not byte-exact.",
-      "link": "https://www.wdc-climate.de/ui/entry?acronym=DKRZ_LTA_146_ds00002",
-      "linkKind": "Registration",
-      "linkStatus": "Contest metadata checked; registered download endpoint could not be retrieved.",
-      "sources": [
-        {
-          "label": "Publisher metadata",
-          "url": "https://scivis2017.dkrz.de/data.html"
-        }
-      ],
-      "notes": "81 MB + 12 GB. Email registration required. Alternative to full LON/LAT series.",
-      "checked": "2026-10-12",
-      "related": "HDCP LON/LAT",
-      "files": [],
-      "inputDownloadGB": "12.081",
-      "inputWorkingGB": "12.081",
-      "downloadSizeMethod": "reported_size",
-      "reportedSize": "81 MB + 12 GB",
-      "reportedSizeSource": "https://scivis2017.dkrz.de/data.html",
-      "reportedSizeEvidence": "The source reports sizes for the individual components, preserved here separately. The numeric subtotal sums these rounded values and is not itself a reported size.",
-      "reportedSizeUnitBasis": "decimal conversion for totals; source notation retained; unit basis not otherwise specified",
-      "reportedSizeParts": [
-        {
-          "label": "81 MB",
-          "scope": "2D variables"
-        },
-        {
-          "label": "12 GB",
-          "scope": "3D variables"
-        }
-      ],
-      "reportedSizeScope": "Reported component sizes; subtotal is a sum, not a publisher-reported collection total.",
-      "sourceSizeAudit": {
-        "checkedUTC": "2026-10-12",
-        "status": "reported_components",
-        "note": "The source reports sizes for the individual components, preserved here separately. The numeric subtotal sums these rounded values and is not itself a reported size.",
-        "url": "https://scivis2017.dkrz.de/data.html"
-      },
-      "sizeAuditCheckedUTC": "2026-10-12"
-    },
-    {
       "id": "SV046",
-      "name": "HD(CP)2, four-hour LON/LAT series",
+      "name": "HD(CP)² weather simulation",
       "collection": "SciVis contests",
       "domain": "Weather",
-      "description": "Weather dataset.",
+      "description": "Cloud and weather simulation with full-series and single-time-step download options.",
       "scope": "4 hours, 2D + 3D products",
       "format": "NetCDF",
       "packaging": "Uncompressed",
       "inputSelected": false,
-      "defaultSelected": false,
+      "defaultSelected": true,
       "downloadBytes": null,
       "downloadApproxBytes": 2696000000000,
       "workingBytes": null,
@@ -4001,9 +3867,9 @@
           "url": "https://scivis2017.dkrz.de/data.html"
         }
       ],
-      "notes": "96 GB + 2.6 TB. Email registration required. Excludes ICON variants and flight trajectories.",
+      "notes": "Choose the full four-hour series or its smaller single-time-step subset. Only the active option contributes to the download size. Email registration is required. ICON variants and flight trajectories are excluded.",
       "checked": "2026-10-12",
-      "related": "HDCP LON/LAT",
+      "related": "",
       "files": [],
       "inputDownloadGB": "2696",
       "inputWorkingGB": "2696",
@@ -4026,10 +3892,86 @@
       "sourceSizeAudit": {
         "checkedUTC": "2026-10-12",
         "status": "reported_components",
-        "note": "The source reports sizes for the individual components, preserved here separately. The numeric subtotal sums these rounded values and is not itself a reported size.",
+        "note": "One dataset with two source-reported download options: full series (96 GB + 2.6 TB) and one time step (81 MB + 12 GB). The active option alone supplies the estimated download total.",
         "url": "https://scivis2017.dkrz.de/data.html"
       },
-      "sizeAuditCheckedUTC": "2026-10-12"
+      "sizeAuditCheckedUTC": "2026-10-12",
+      "downloadOptions": [
+        {
+          "id": "full-series",
+          "label": "Four-hour series (full dataset)",
+          "fields": {
+            "scope": "4 hours, 2D + 3D products",
+            "downloadBytes": null,
+            "downloadApproxBytes": 2696000000000,
+            "workingBytes": null,
+            "workingApproxBytes": 2696000000000,
+            "basis": "Reported size: 96 GB + 2.6 TB. The source reports sizes for the individual components, preserved here separately. The numeric subtotal sums these rounded values and is not itself a reported size. Rounded source values are converted only for sorting and estimated totals; no dimensions-based download size is used.",
+            "workingBasis": "Publisher-rounded size, not byte-exact.",
+            "link": "https://www.wdc-climate.de/ui/entry?acronym=DKRZ_LTA_146_ds00002",
+            "linkKind": "Registration",
+            "linkStatus": "Contest metadata checked; registered download endpoint could not be retrieved.",
+            "reportedSize": "96 GB + 2.6 TB",
+            "reportedSizeSource": "https://scivis2017.dkrz.de/data.html",
+            "reportedSizeEvidence": "The source reports sizes for the individual components, preserved here separately. The numeric subtotal sums these rounded values and is not itself a reported size.",
+            "reportedSizeUnitBasis": "decimal conversion for totals; source notation retained; unit basis not otherwise specified",
+            "reportedSizeParts": [
+              {
+                "label": "96 GB",
+                "scope": "2D variables"
+              },
+              {
+                "label": "2.6 TB",
+                "scope": "3D variables"
+              }
+            ],
+            "reportedSizeScope": "Reported component sizes; subtotal is a sum, not a publisher-reported collection total.",
+            "inputDownloadGB": "2696",
+            "inputWorkingGB": "2696",
+            "files": []
+          }
+        },
+        {
+          "id": "single-step",
+          "label": "One time step (smaller subset)",
+          "fields": {
+            "scope": "One time step, 2D + 3D products",
+            "downloadBytes": null,
+            "downloadApproxBytes": 12081000000,
+            "workingBytes": null,
+            "workingApproxBytes": 12081000000,
+            "basis": "Reported size: 81 MB + 12 GB. The source reports sizes for the individual components, preserved here separately. The numeric subtotal sums these rounded values and is not itself a reported size. Rounded source values are converted only for sorting and estimated totals; no dimensions-based download size is used.",
+            "workingBasis": "Publisher-rounded size, not byte-exact.",
+            "link": "https://www.wdc-climate.de/ui/entry?acronym=DKRZ_LTA_146_ds00002",
+            "linkKind": "Registration",
+            "linkStatus": "Contest metadata checked; registered download endpoint could not be retrieved.",
+            "reportedSize": "81 MB + 12 GB",
+            "reportedSizeSource": "https://scivis2017.dkrz.de/data.html",
+            "reportedSizeEvidence": "The source reports sizes for the individual components, preserved here separately. The numeric subtotal sums these rounded values and is not itself a reported size.",
+            "reportedSizeUnitBasis": "decimal conversion for totals; source notation retained; unit basis not otherwise specified",
+            "reportedSizeParts": [
+              {
+                "label": "81 MB",
+                "scope": "2D variables"
+              },
+              {
+                "label": "12 GB",
+                "scope": "3D variables"
+              }
+            ],
+            "reportedSizeScope": "Reported component sizes; subtotal is a sum, not a publisher-reported collection total.",
+            "inputDownloadGB": "12.081",
+            "inputWorkingGB": "12.081",
+            "files": []
+          }
+        }
+      ],
+      "defaultDownloadOption": "full-series",
+      "selectedDownloadOption": "full-series",
+      "sourceRecordIds": [
+        "SV045",
+        "SV046"
+      ]
     },
     {
       "id": "SV047",
@@ -4069,7 +4011,7 @@
       "reportedSize": "100 Terabytes",
       "reportedSizeSource": "https://turbulence.idies.jhu.edu/home",
       "reportedSizeEvidence": "Publisher-reported hosted database or snapshot collection capacity; not a local download package.",
-      "reportedSizeScope": "Hosted database capacity · excluded from download totals",
+      "reportedSizeScope": "Hosted database capacity, excluded from download totals",
       "reportedSizeUnitBasis": "publisher notation retained; decimal capacity for display only",
       "sourceSizeAudit": {
         "checkedUTC": "2026-10-12",
@@ -4117,7 +4059,7 @@
       "reportedSize": "50 TB",
       "reportedSizeSource": "https://turbulence.idies.jhu.edu/home",
       "reportedSizeEvidence": "Publisher-reported hosted database or snapshot collection capacity; not a local download package.",
-      "reportedSizeScope": "Hosted database capacity · excluded from download totals",
+      "reportedSizeScope": "Hosted database capacity, excluded from download totals",
       "reportedSizeUnitBasis": "publisher notation retained; decimal capacity for display only",
       "sourceSizeAudit": {
         "checkedUTC": "2026-10-12",
@@ -4165,7 +4107,7 @@
       "reportedSize": "130 TB",
       "reportedSizeSource": "https://turbulence.idies.jhu.edu/home",
       "reportedSizeEvidence": "Publisher-reported hosted database or snapshot collection capacity; not a local download package.",
-      "reportedSizeScope": "Hosted database capacity · excluded from download totals",
+      "reportedSizeScope": "Hosted database capacity, excluded from download totals",
       "reportedSizeUnitBasis": "publisher notation retained; decimal capacity for display only",
       "sourceSizeAudit": {
         "checkedUTC": "2026-10-12",
@@ -4213,7 +4155,7 @@
       "reportedSize": "27 TB",
       "reportedSizeSource": "https://turbulence.idies.jhu.edu/home",
       "reportedSizeEvidence": "Publisher-reported hosted database or snapshot collection capacity; not a local download package.",
-      "reportedSizeScope": "Hosted database capacity · excluded from download totals",
+      "reportedSizeScope": "Hosted database capacity, excluded from download totals",
       "reportedSizeUnitBasis": "publisher notation retained; decimal capacity for display only",
       "sourceSizeAudit": {
         "checkedUTC": "2026-10-12",
@@ -4261,7 +4203,7 @@
       "reportedSize": "105 TB",
       "reportedSizeSource": "https://turbulence.idies.jhu.edu/home",
       "reportedSizeEvidence": "Publisher-reported hosted database or snapshot collection capacity; not a local download package.",
-      "reportedSizeScope": "Hosted database capacity · excluded from download totals",
+      "reportedSizeScope": "Hosted database capacity, excluded from download totals",
       "reportedSizeUnitBasis": "publisher notation retained; decimal capacity for display only",
       "sourceSizeAudit": {
         "checkedUTC": "2026-10-12",
@@ -4309,7 +4251,7 @@
       "reportedSize": "40 TB",
       "reportedSizeSource": "https://turbulence.idies.jhu.edu/home",
       "reportedSizeEvidence": "Publisher-reported hosted database or snapshot collection capacity; not a local download package.",
-      "reportedSizeScope": "Hosted database capacity · excluded from download totals",
+      "reportedSizeScope": "Hosted database capacity, excluded from download totals",
       "reportedSizeUnitBasis": "publisher notation retained; decimal capacity for display only",
       "sourceSizeAudit": {
         "checkedUTC": "2026-10-12",
@@ -4357,7 +4299,7 @@
       "reportedSize": "5 Terabytes",
       "reportedSizeSource": "https://turbulence.idies.jhu.edu/home",
       "reportedSizeEvidence": "Publisher-reported hosted database or snapshot collection capacity; not a local download package.",
-      "reportedSizeScope": "Hosted database capacity · excluded from download totals",
+      "reportedSizeScope": "Hosted database capacity, excluded from download totals",
       "reportedSizeUnitBasis": "publisher notation retained; decimal capacity for display only",
       "sourceSizeAudit": {
         "checkedUTC": "2026-10-12",
@@ -4405,7 +4347,7 @@
       "reportedSize": "20 Terabytes",
       "reportedSizeSource": "https://turbulence.idies.jhu.edu/home",
       "reportedSizeEvidence": "Publisher-reported hosted database or snapshot collection capacity; not a local download package.",
-      "reportedSizeScope": "Hosted database capacity · excluded from download totals",
+      "reportedSizeScope": "Hosted database capacity, excluded from download totals",
       "reportedSizeUnitBasis": "publisher notation retained; decimal capacity for display only",
       "sourceSizeAudit": {
         "checkedUTC": "2026-10-12",
@@ -4453,7 +4395,7 @@
       "reportedSize": "1/2 petabytes",
       "reportedSizeSource": "https://turbulence.idies.jhu.edu/home",
       "reportedSizeEvidence": "Publisher-reported hosted database or snapshot collection capacity; not a local download package.",
-      "reportedSizeScope": "Hosted database capacity · excluded from download totals",
+      "reportedSizeScope": "Hosted database capacity, excluded from download totals",
       "reportedSizeUnitBasis": "publisher notation retained; decimal capacity for display only",
       "sourceSizeAudit": {
         "checkedUTC": "2026-10-12",
@@ -7519,7 +7461,7 @@
       "format": "JPEG, XLSX",
       "packaging": "Collection",
       "inputSelected": false,
-      "defaultSelected": true,
+      "defaultSelected": false,
       "downloadBytes": null,
       "downloadApproxBytes": 1175574938,
       "workingBytes": null,
@@ -29958,7 +29900,7 @@
           "scope": "VTS files in seven simulation folders"
         }
       ],
-      "reportedSizeScope": "Per VTS file · 527 files · no publisher-reported collection total",
+      "reportedSizeScope": "Per VTS file, 527 files, no publisher-reported collection total",
       "sourceSizeAudit": {
         "checkedUTC": "2026-10-12",
         "status": "reported_components",
@@ -29977,7 +29919,7 @@
       "format": "See publisher files",
       "packaging": "Collection",
       "inputSelected": false,
-      "defaultSelected": true,
+      "defaultSelected": false,
       "downloadBytes": null,
       "downloadApproxBytes": null,
       "workingBytes": null,
@@ -30425,7 +30367,7 @@
           "scope": "nifcylxyz_hdf5_plt_cnt_0019.flash"
         }
       ],
-      "reportedSizeScope": "Per plot file · 20 files · no publisher-reported collection total",
+      "reportedSizeScope": "Per plot file, 20 files, no publisher-reported collection total",
       "sourceSizeAudit": {
         "checkedUTC": "2026-10-12",
         "status": "reported_components",
@@ -30438,28 +30380,28 @@
   "methodology": {
     "exact": "Only explicitly retained integer file-byte counts belong in the byte-count subtotal. A green Reported size badge identifies source provenance, not byte-exact precision. Published rounded labels remain estimates in numeric totals.",
     "approximate": "For numeric totals, rounded labels use decimal units unless a binary basis is documented. Open SciVis uses 1024-based units with kB/MB/GB labels; LANL Apache K/M/G/T uses binary units. Component and per-file totals sum converted source labels, rounded to whole bytes. These sums remain estimates. Hosted capacities and unknown download scopes are excluded.",
-    "scope": "104 catalog entries: 93 spreadsheet entries and 11 LANL dataset collections. LANL catalog databases are indexing artifacts, not additional scientific datasets.",
-    "defaultSelection": "75 spreadsheet-selected entries plus 11 LANL collections; one copy of each selected representation.",
+    "scope": "103 catalog entries: 92 dataset entries consolidated from the 93 spreadsheet records, plus 11 LANL scientific collections. HD(CP)² has one entry with two download options. LANL catalog databases are indexing artifacts, not additional scientific datasets.",
+    "defaultSelection": "All 87 entries matching All collections and Reported size / bytes; one copy of each selected representation. Changing any dropdown selects all entries matching the current filters, replacing the previous selection and recalculating download totals; searching affects visibility only.",
     "unknown": "Null is unknown, never zero. No exact whole-catalog transfer total is asserted.",
-    "deduplication": "Same canonical RAW URL counted once; archive and expanded LANL duplicates excluded. HDCP single step and series are mutually exclusive. Related scientific content may still overlap across distinct files.",
+    "deduplication": "Same canonical RAW URL counted once; archive and expanded LANL duplicates excluded. HD(CP)² is one dataset with mutually alternative download options; only the chosen option is counted. Related scientific content may still overlap across distinct files.",
     "working": "Working values identify either scalar payload or explicitly scoped expanded data files; they are not a complete archive-extraction, peak disk or RAM requirement. Read each workingBasis.",
-    "verification": "Publisher source links followed on 2026-10-08. Some responses are cached. Binary content-type responses establish a target, not complete transfer success. Failed or truncated directory retrieval never establishes a zero-byte total. On 2026-10-12, all 55 Open SciVis reported labels were matched against the user-supplied HTML snapshot by exact RAW URL and dimensions; this is not a new live download check. On 2026-10-12, both linked Zenodo records were checked: 10519411 reports 40.8 GB for all six files, and 15189444 reports 223.0 MB for its single v3 TXT file. Source-size audit on 2026-10-12 covers all 104 entries: the supplied Open SciVis snapshot, the two already checked Zenodo pages, and current publisher metadata/listings for the remaining entries. Some retrieved pages are cached. Audit outcomes distinguish reported download labels, component labels, hosted capacities, and missing matching totals; no new binary transfers were performed.",
-    "reported": "Original source labels are retained for download files, component files, and explicitly identified hosted capacities. Composite displays join reported component labels; per-file ranges are summaries and the detailed labels are listed below. No derived collection subtotal is claimed to be a publisher-reported total. All 104 entries have an audit outcome and source link."
+    "verification": "Publisher source links followed on 2026-10-08. Some responses are cached. Binary content-type responses establish a target, not complete transfer success. Failed or truncated directory retrieval never establishes a zero-byte total. On 2026-10-12, all 55 Open SciVis reported labels were matched against the user-supplied HTML snapshot by exact RAW URL and dimensions; this is not a new live download check. On 2026-10-12, both linked Zenodo records were checked: 10519411 reports 40.8 GB for all six files, and 15189444 reports 223.0 MB for its single v3 TXT file. Source-size audit on 2026-10-12 covers all 103 entries: the supplied Open SciVis snapshot, the two already checked Zenodo pages, and current publisher metadata/listings for the remaining entries. Some retrieved pages are cached. Audit outcomes distinguish reported download labels, component labels, hosted capacities, and missing matching totals; no new binary transfers were performed. The two HD(CP)² source records were consolidated into one dataset entry with selectable download options; prior source checks are preserved.",
+    "reported": "Original source labels are retained for download files, component files, and explicitly identified hosted capacities. Composite displays join reported component labels; per-file ranges are summaries and the detailed labels are listed below. No derived collection subtotal is claimed to be a publisher-reported total. All 103 entries have an audit outcome and source link."
   },
   "totals": {
     "default": {
-      "count": 86,
+      "count": 87,
       "exactDownloadBytes": 0,
-      "approximateDownloadBytes": 5414124600099,
+      "approximateDownloadBytes": 8278949025161,
       "exactDownloadCount": 0,
-      "approximateDownloadCount": 85,
-      "unknownDownloadCount": 1,
-      "calculatedWorkingBytes": 2343234470624,
-      "approximateWorkingBytes": 1398574938,
-      "unknownWorkingCount": 8,
+      "approximateDownloadCount": 87,
+      "unknownDownloadCount": 0,
+      "calculatedWorkingBytes": 2459198587616,
+      "approximateWorkingBytes": 4196223000000,
+      "unknownWorkingCount": 7,
       "serverReportedDownloadBytes": 0,
       "calculatedRawBytes": 0,
-      "reportedSizeCount": 84
+      "reportedSizeCount": 87
     },
     "spreadsheet": {
       "count": 75,
@@ -30508,7 +30450,7 @@
   "sourceSizeAuditUTC": "2026-10-12",
   "sourceSizeAuditSummary": {
     "reported_download": 81,
-    "reported_components": 7,
+    "reported_components": 6,
     "reported_hosted_capacity": 9,
     "no_matching_total": 7
   }
@@ -30526,10 +30468,12 @@
           '"': '&quot;',
           "'": '&#39;'
         } [c]));
+      const defaultFilters = { search: '', collection: '', evidence: 'exact' };
       const state = {
-        selected: new Set(records.filter(d => d.defaultSelected).map(d => d.id)),
+        selected: new Set(records.filter(d => matchesFilters(d, defaultFilters)).map(d => d.id)),
         quantities: {},
         open: new Set(),
+        sort: { key: 'name', direction: 'asc' },
         visible: []
       };
 
@@ -30559,9 +30503,17 @@
       }
 
       function evidence(d) {
+        if (d.collection === 'JHTDB') return 'unknown';
         // Reported source labels share the reported-bytes badge and filter.
         // Numeric totals still preserve their rounded precision.
-        return d.reportedSize || d.downloadBytes !== null ? 'exact' : d.downloadApproxBytes !== null ? 'approx' : 'unknown'
+        return d.reportedSize || d.downloadBytes != null ? 'exact' : d.downloadApproxBytes != null ? 'approx' : 'unknown'
+      }
+
+      function matchesFilters(d, filters) {
+        const term = filters.search.trim().toLowerCase();
+        return (!term || [d.name, d.id, d.domain, d.scope, d.description, d.related].join(' ').toLowerCase().includes(term)) &&
+          (!filters.collection || d.collection === filters.collection) &&
+          (!filters.evidence || evidence(d) === filters.evidence)
       }
 
       function sizeValue(d) {
@@ -30571,12 +30523,12 @@
       function sizeCell(d) {
         let v = sizeValue(d),
           ev = evidence(d);
-        return `<div class="scope">${escape(d.scope)}</div><span class="size">${d.reportedSize?escape(d.reportedSize):(ev==='approx'?'≈ ':'')+(v===null?(d.packaging==='Remote'?'Scope-dependent':'Unknown'):fmt(v))}</span><span class="pill ${ev}">${d.reportedSize?'Reported size':ev==='exact'?'Reported bytes':ev==='approx'?'Rounded':'Uncounted'}</span>`
+        return `<div><span class="size">${d.reportedSize?escape(d.reportedSize):(ev==='approx'?'≈ ':'')+(v===null?(d.packaging==='Remote'?'Scope-dependent':'Unknown'):fmt(v))}</span><span class="pill ${ev}">${ev==='unknown'?'Unverified':d.reportedSize?'Reported size':ev==='exact'?'Reported bytes':'Rounded'}</span></div><div class="scope">${escape(d.scope)}</div>`
       }
 
       function fileDetails(files, label) {
         if (!files?.length) return '';
-        const item = f => `<li>${link(f.url,f.name)}${f.reportedSize?' · '+escape(f.reportedSize)+' (reported size)':f.observedBytes!=null?' · '+exactLabel(f.observedBytes):f.expectedBytes!=null?' · '+exactLabel(f.expectedBytes)+' calculated':f.approximateBytes!=null?' · ≈ '+fmt(f.approximateBytes)+(f.listedSize?' (listed '+escape(f.listedSize)+')':''):''}${f.httpStatus?'<span class="flag"> · HTTP '+f.httpStatus+'</span>':''}</li>`;
+        const item = f => `<li>${link(f.url,f.name)}${f.reportedSize?', '+escape(f.reportedSize)+' (reported size)':f.observedBytes!=null?', '+exactLabel(f.observedBytes):f.expectedBytes!=null?', '+exactLabel(f.expectedBytes)+' calculated':f.approximateBytes!=null?', ≈ '+fmt(f.approximateBytes)+(f.listedSize?' (listed '+escape(f.listedSize)+')':''):''}${f.httpStatus?'<span class="flag">, HTTP '+f.httpStatus+'</span>':''}</li>`;
         let body;
         if (files.length > 100) {
           const groups = new Map();
@@ -30586,92 +30538,94 @@
             if (!groups.has(folder)) groups.set(folder, []);
             groups.get(folder).push(f)
           }
-          body = [...groups].map(([name, list]) => `<details><summary>${escape(name)} · ${list.length} files</summary><ul class="filelinks">${list.map(item).join('')}</ul></details>`).join('')
+          body = [...groups].map(([name, list]) => `<details><summary>${escape(name)}, ${list.length} files</summary><ul class="filelinks">${list.map(item).join('')}</ul></details>`).join('')
         } else body = `<ul class="filelinks">${files.map(item).join('')}</ul>`;
-        return `<details class="filelinks"><summary>${escape(label)} · ${files.length} file links</summary>${body}</details>`
+        return `<details class="filelinks"><summary>${escape(label)}, ${files.length} file links</summary>${body}</details>`
       }
 
       function inventoryDetails(d) {
-        return d.inventory?.length ? `<details class="filelinks"><summary>Folder inventory · ${d.inventory.length} branches</summary><ul>${d.inventory.map(x=>`<li>${link(x.url,x.name)}${x.files!=null?' · '+x.files+' files':''}${x.bytes!=null?' · '+exactLabel(x.bytes):x.approximateBytes!=null?' · ≈ '+fmt(x.approximateBytes):''}<br><span class="muted">${escape(x.status)}</span></li>`).join('')}</ul></details>` : ''
+        return d.inventory?.length ? `<details class="filelinks"><summary>Folder inventory, ${d.inventory.length} branches</summary><ul>${d.inventory.map(x=>`<li>${link(x.url,x.name)}${x.files!=null?', '+x.files+' files':''}${x.bytes!=null?', '+exactLabel(x.bytes):x.approximateBytes!=null?', ≈ '+fmt(x.approximateBytes):''}<br><span class="muted">${escape(x.status)}</span></li>`).join('')}</ul></details>` : ''
       }
 
       function downloadCell(d) {
         const accessLink = (url, description) => {
           const domain = new URL(url).hostname.replace(/^www\./, '');
           const caption = ['Download RAW', 'Access service'].includes(description) ? '' : description;
-          return `<a href="${escape(url)}" target="_blank" rel="noopener" title="${escape(caption || domain)}" aria-label="${escape(domain + (caption ? ' — ' + caption : ''))}">${escape(domain)} ↗</a>`
+          return `<a href="${escape(url)}" target="_blank" rel="noopener" title="${escape(caption || domain)}" aria-label="${escape(domain + (caption ? ' (' + caption + ')' : ''))}">${escape(domain)} ↗</a>`
         };
         const links = d.files.length > 1 && d.files.length <= 4 ? d.files.map(f => accessLink(f.url, f.name)).join('<br>') : accessLink(d.link, d.linkKind);
         return links + (d.linkWarning ? `<div class="small flag">${escape(d.linkWarning)}</div>` : '')
       }
 
-      function detail(d) {
-        const total = d.workingBytes ?? d.workingApproxBytes;
-        return `<tr class="details-row" id="details-${d.id}" ${state.open.has(d.id)?'':'hidden'}><td colspan="4"><div class="details-grid"><div><h3>Size &amp; scope</h3>${d.sourceSizeAudit?`<p><b>Source size check:</b> ${escape(d.sourceSizeAudit.note)} ${link(d.sourceSizeAudit.url,'Source metadata')}</p>`:''}${d.reportedSizeParts?`<p><b>Reported components:</b> ${d.reportedSizeParts.map(p=>escape((p.count?p.count+' × ':'')+p.label+' — '+p.scope)).join('; ')}</p>`:''}<p><b>Download basis:</b> ${escape(d.basis)}</p>${d.downloadBytes!==null?`<p><b>Reported file bytes:</b> ${exactLabel(d.downloadBytes)}</p>`:''}<p><b>Working data size:</b> ${total===null?'Unknown':(d.workingBytes===null?'≈ ':'')+fmt(total)}. ${escape(d.workingBasis)}</p>${d.remoteApproxBytes!==null?`<p><b>Hosted database:</b> ${d.reportedSize?escape(d.reportedSize):'≈ '+fmt(d.remoteApproxBytes)}. Excluded from local totals.</p>`:''}${d.unitPayloadBytes!==null?`<p><b>Per-unit payload:</b> ${fmt(d.unitPayloadBytes)} (${exactLabel(d.unitPayloadBytes)}). ${escape(d.scope)}; not a whole-archive total.</p>`:''}<p><b>Format:</b> ${escape(d.format)}</p><p><b>Selection quantity:</b><input class="quantity" type="number" min="1" max="1000" step="1" value="${qty(d)}" data-quantity="${d.id}" aria-label="Copies of ${escape(d.name)}"> copies of this representation</p>${d.related?`<p class="flag"><b>Related data:</b> ${escape(d.related)}. Distinct files can share scientific content.</p>`:''}<p>${escape(d.notes)}</p></div><div><h3>Sources &amp; downloads</h3><p>${escape(d.linkStatus)}</p><ul>${d.sources.map(s=>`<li>${link(s.url,s.label)}</li>`).join('')}</ul>${d.header?`<p>${link(d.header,'Detached NRRD header')} · ${escape(d.headerStatus)}</p>`:''}${fileDetails(d.files,'Counted representation')}${d.workingDataFiles?fileDetails(d.workingDataFiles,'Expanded data alternative — excluded from download total'):''}${d.partialFiles?fileDetails(d.partialFiles,'Partial inventory — excluded from totals'):''}${inventoryDetails(d)}<p class="muted small">Metadata checked ${d.checked} UTC · ID ${d.id}</p></div></div></td></tr>`
+      function downloadOptions(d) {
+        if (!d.downloadOptions) return '';
+        return `<label class="field">Download option<select data-download-option="${d.id}" aria-label="Download option for ${escape(d.name)}">${d.downloadOptions.map(option => `<option value="${escape(option.id)}" ${d.selectedDownloadOption === option.id ? 'selected' : ''}>${escape(option.label)}</option>`).join('')}</select></label><ul>${d.downloadOptions.map(option => `<li>${escape(option.label)}: <b>${escape(option.fields.reportedSize)}</b>, ${link(option.fields.link, 'Download access')}, ${link(option.fields.reportedSizeSource, 'Source sizes')}</li>`).join('')}</ul>`
       }
 
-      function render() {
-        const term = $('search').value.trim().toLowerCase(),
-          collection = $('collection').value,
-          ev = $('evidence').value;
-        let list = records.filter(d => (!term || [d.name, d.id, d.domain, d.scope, d.description, d.related].join(' ').toLowerCase().includes(term)) && (!collection || d.collection === collection) && (!ev || evidence(d) === ev) && (!$('selected-only').checked || state.selected.has(d.id)));
-        const sort = $('sort').value;
+      function detail(d) {
+        const total = d.workingBytes ?? d.workingApproxBytes;
+        return `<tr class="details-row" id="details-${d.id}" ${state.open.has(d.id)?'':'hidden'}><td colspan="4"><div class="details-grid"><div><h3>Size &amp; scope</h3>${downloadOptions(d)}${d.sourceSizeAudit?`<p><b>Source size check:</b> ${escape(d.sourceSizeAudit.note)} ${link(d.sourceSizeAudit.url,'Source metadata')}</p>`:''}${d.reportedSizeParts?`<p><b>Reported components:</b> ${d.reportedSizeParts.map(p=>escape((p.count?p.count+' × ':'')+p.label+' ('+p.scope+')')).join('; ')}</p>`:''}<p><b>Download basis:</b> ${escape(d.basis)}</p>${d.downloadBytes!==null?`<p><b>Reported file bytes:</b> ${exactLabel(d.downloadBytes)}</p>`:''}<p><b>Working data size:</b> ${total===null?'Unknown':(d.workingBytes===null?'≈ ':'')+fmt(total)}. ${escape(d.workingBasis)}</p>${d.remoteApproxBytes!==null?`<p><b>Hosted database:</b> ${d.reportedSize?escape(d.reportedSize):'≈ '+fmt(d.remoteApproxBytes)}. Excluded from local totals.</p>`:''}${d.unitPayloadBytes!==null?`<p><b>Per-unit payload:</b> ${fmt(d.unitPayloadBytes)} (${exactLabel(d.unitPayloadBytes)}). ${escape(d.scope)}; not a whole-archive total.</p>`:''}<p><b>Format:</b> ${escape(d.format)}</p>${d.related?`<p class="flag"><b>Related data:</b> ${escape(d.related)}. Distinct files can share scientific content.</p>`:''}<p>${escape(d.notes)}</p></div><div><h3>Sources &amp; downloads</h3><p>${escape(d.linkStatus)}</p><ul>${d.sources.map(s=>`<li>${link(s.url,s.label)}</li>`).join('')}</ul>${d.header?`<p>${link(d.header,'Detached NRRD header')}, ${escape(d.headerStatus)}</p>`:''}${fileDetails(d.files,'Counted representation')}${d.workingDataFiles?fileDetails(d.workingDataFiles,'Expanded data alternative (excluded from download total)'):''}${d.partialFiles?fileDetails(d.partialFiles,'Partial inventory (excluded from totals)'):''}${inventoryDetails(d)}<p class="muted small">Metadata checked ${d.checked} UTC, ID ${d.id}</p></div></div></td></tr>`
+      }
+
+      function render(replaceSelection = false) {
+        const filters = { search: $('search').value, collection: $('collection').value, evidence: $('evidence').value };
+        let list = records.filter(d => matchesFilters(d, filters));
+        // Dropdown changes replace the old selection with the new matching list.
+        if (replaceSelection === true) state.selected = new Set(list.map(d => d.id));
+        const { key, direction } = state.sort;
+        const order = direction === 'asc' ? 1 : -1;
         list.sort((a, b) => {
-          if (sort.startsWith('size')) {
-            let av = sizeValue(a),
-              bv = sizeValue(b);
+          if (key === 'size') {
+            const av = sizeValue(a), bv = sizeValue(b);
             if (av === null && bv === null) return a.name.localeCompare(b.name);
             if (av === null) return 1;
             if (bv === null) return -1;
-            return sort === 'size-desc' ? bv - av : av - bv
+            return order * (av - bv) || a.name.localeCompare(b.name)
           }
-          return (sort === 'collection' ? a.collection.localeCompare(b.collection) : 0) || a.name.localeCompare(b.name)
+          return order * (key === 'collection' ? a.collection.localeCompare(b.collection) : a.name.localeCompare(b.name)) || a.name.localeCompare(b.name)
+        });
+        document.querySelectorAll('th[aria-sort]').forEach(th => th.removeAttribute('aria-sort'));
+        document.querySelectorAll('[data-sort]').forEach(button => {
+          const active = button.dataset.sort === key;
+          button.querySelector('.sort-arrow').textContent = active ? (direction === 'asc' ? '↑' : '↓') : '↕';
+          const next = active && direction === 'asc' ? 'descending' : active ? 'ascending' : button.dataset.sort === 'size' ? 'descending' : 'ascending';
+          button.setAttribute('aria-label', `Sort by ${button.dataset.label}, ${next}`);
+          if (active) button.closest('th').setAttribute('aria-sort', direction === 'asc' ? 'ascending' : 'descending');
         });
         state.visible = list;
         document.querySelectorAll('table tbody').forEach(t => t.remove());
-        const html = list.map(d => `<tbody data-id="${d.id}"><tr class="main-row"><td><div class="dataset-title"><input type="checkbox" data-select="${d.id}" aria-label="Include ${escape(d.name)} in totals" ${state.selected.has(d.id)?'checked':''}><button class="expand" data-expand="${d.id}" aria-expanded="${state.open.has(d.id)}" aria-controls="details-${d.id}"><span class="triangle" aria-hidden="true">${state.open.has(d.id)?'▼':'▶'}</span><span>${escape(d.name)}</span></button></div><span class="meta">${escape(d.collection)} · ${d.id}${qty(d)>1?' · ×'+qty(d):''}</span></td><td class="description">${escape(d.description)}</td><td>${sizeCell(d)}</td><td class="download">${downloadCell(d)}</td></tr>${detail(d)}</tbody>`).join('');
+        const html = list.map(d => `<tbody data-id="${d.id}"><tr class="main-row"><td><div class="dataset-title"><input type="checkbox" data-select="${d.id}" aria-label="Include ${escape(d.name)} in totals" ${state.selected.has(d.id)?'checked':''}><button class="expand" data-expand="${d.id}" aria-expanded="${state.open.has(d.id)}" aria-controls="details-${d.id}"><span class="triangle" aria-hidden="true">${state.open.has(d.id)?'▼':'▶'}</span><span>${escape(d.name)}</span></button></div><span class="meta">${escape(d.collection)}, ${d.id}${qty(d)>1?', ×'+qty(d):''}</span></td><td class="description">${escape(d.description)}</td><td>${sizeCell(d)}</td><td class="download">${downloadCell(d)}</td></tr>${detail(d)}</tbody>`).join('');
         document.querySelector('table').insertAdjacentHTML('beforeend', html || '<tbody><tr><td colspan="4" class="empty">No datasets match these filters.</td></tr></tbody>');
-        $('results').textContent = `${list.length} of ${records.length} entries · Expand a dataset for evidence and file details.`;
         totals()
       }
 
       function totals() {
         const sel = records.filter(d => state.selected.has(d.id));
-        let ex = 0n,
-          ap = 0n,
-          unknown = 0,
-          exactCount = 0,
-          approxCount = 0,
-          work = 0n,
-          workApprox = 0n,
-          workUnknown = 0;
+        let ex = 0n, ap = 0n, unknown = 0, sized = 0;
         for (const d of sel) {
-          let q = BigInt(qty(d));
+          const q = BigInt(qty(d));
           if (d.downloadBytes !== null) {
             ex += BigInt(d.downloadBytes) * q;
-            exactCount++
+            sized++
           } else if (d.downloadApproxBytes !== null) {
             ap += BigInt(d.downloadApproxBytes) * q;
-            approxCount++
-          } else unknown++;
-          if (d.workingBytes !== null) work += BigInt(d.workingBytes) * q;
-          else if (d.workingApproxBytes !== null) workApprox += BigInt(d.workingApproxBytes) * q;
-          else workUnknown++
+            sized++
+          } else unknown++
         }
         const known = ex + ap;
-        $('selected-count').textContent = `/ ${sel.length} entries`;
-        $('known').textContent = (ap > 0 ? '≈ ' : '') + fmt(Number(known));
-        $('known-sub').textContent = `${(Number(known)/1e12).toFixed(4)} TB · ${(Number(known)/2**40).toFixed(4)} TiB${unknown?' + unknown sizes':''}`;
-        $('exact').textContent = fmt(Number(ex));
-        $('exact-sub').textContent = `${exactLabel(ex)} · ${exactCount} entries`;
-        $('approx').textContent = (ap > 0 ? '≈ ' : '') + fmt(Number(ap));
-        $('approx-sub').textContent = `${approxCount} entries · rounded source values`;
-        $('unknown').textContent = String(unknown);
-        $('unknown-sub').textContent = unknown ? 'Entries excluded from the numeric subtotal' : 'Every selected entry has a size basis';
-        $('total-note').innerHTML = unknown ? `<strong>Incomplete total.</strong> The subtotal includes ${exactCount} reported file-byte sizes and ${approxCount} rounded estimates. ${unknown} selected ${unknown===1?'entry still needs':'entries still need'} a complete byte inventory. Unknown does not mean zero.` : ap > 0 ? '<strong>Estimate, not an exact total.</strong> All selected entries have a size basis, but rounded publisher sizes and untested download links remain.' : '<strong>Reported file-byte subtotal.</strong> Each row identifies its size method. Complete transfers and checksums remain unverified; detached RAW headers are excluded.';
+        $('results').innerHTML = `<strong>${sel.length}</strong> entries selected`;
+        const hiddenSelected = sel.length - state.visible.filter(d => state.selected.has(d.id)).length;
+        $('live').textContent = `${state.visible.length} of ${records.length} entries shown` + (hiddenSelected ? `, ${hiddenSelected} selected ${hiddenSelected === 1 ? 'entry is' : 'entries are'} hidden by filters` : '');
+        const totalLabel = !sel.length ? '0 B' : !sized ? 'Unknown' : (ap > 0 ? '≈ ' : '') + fmt(Number(known));
+        $('known').innerHTML = `${escape(totalLabel).replace(/\d[\d,.]*/g, '<strong>$&</strong>')} total download size`;
+        $('known-sub').textContent = unknown ? `${unknown} ${unknown === 1 ? 'entry has' : 'entries have'} no fixed download size` : '';
+        $('known-sub').hidden = unknown === 0;
+        const notes = [];
+
         const warnings = sel.filter(d => d.linkWarning);
-        if (warnings.length) $('total-note').innerHTML += ' <strong>Download issue:</strong> ' + warnings.map(d => escape(d.name) + ': ' + escape(d.linkWarning)).join('; ') + '. Planned sizes remain included, but complete download availability is unresolved.';
-        $('working').innerHTML = `<b>Working data subtotal:</b> ${workApprox>0?'≈ ':''}${fmt(Number(work+workApprox))} <span class="muted">· ${workUnknown} unknown · see each row’s scope; remote database capacities excluded.</span>`;
+        if (warnings.length) notes.push('<em>Download availability:</em> ' + warnings.map(d => escape(d.name) + ': ' + escape(d.linkWarning)).join('; ') + '.');
+        $('total-note').innerHTML = notes.join(' ');
+        $('total-note').hidden = !notes.length;
         window.currentTotals = {
           exact: ex.toString(),
           approx: ap.toString(),
@@ -30682,18 +30636,21 @@
       }
 
       function select(id, on) {
-        if (on) {
-          state.selected.add(id);
-          if (id === 'SV045' || id === 'SV046') {
-            const other = id === 'SV045' ? 'SV046' : 'SV045';
-            if (state.selected.delete(other)) $('live').textContent = 'HD(CP)² single-step and full-series alternatives cannot be counted together.'
-          }
-        } else state.selected.delete(id)
+        if (on) state.selected.add(id);
+        else state.selected.delete(id)
       }
       document.addEventListener('change', e => {
+        if (e.target.dataset.downloadOption) {
+          const d = records.find(d => d.id === e.target.dataset.downloadOption);
+          const option = d?.downloadOptions?.find(option => option.id === e.target.value);
+          if (!option) return;
+          Object.assign(d, option.fields);
+          d.selectedDownloadOption = option.id;
+          render(true);
+          return
+        }
         if (e.target.dataset.select) {
           select(e.target.dataset.select, e.target.checked);
-          $('preset').value = 'custom';
           render()
         }
         if (e.target.dataset.quantity) {
@@ -30703,11 +30660,20 @@
             return
           }
           state.quantities[e.target.dataset.quantity] = n;
-          $('preset').value = 'custom';
           render()
         }
       });
       document.addEventListener('click', e => {
+        const sortButton = e.target.closest('[data-sort]');
+        if (sortButton) {
+          const key = sortButton.dataset.sort;
+          state.sort = {
+            key,
+            direction: state.sort.key === key ? (state.sort.direction === 'asc' ? 'desc' : 'asc') : (key === 'size' ? 'desc' : 'asc')
+          };
+          render();
+          return
+        }
         let b = e.target.closest('[data-expand]');
         if (b) {
           const id = b.dataset.expand,
@@ -30718,67 +30684,22 @@
           $('details-' + id).hidden = !on
         }
       });
-      for (const id of ['collection', 'evidence', 'units', 'sort', 'selected-only']) $(id).addEventListener('change', render);
-      $('search').addEventListener('input', render);
-      $('preset').addEventListener('change', () => {
-        const p = $('preset').value;
-        state.selected.clear();
-        state.quantities = {};
-        $('live').textContent = '';
-        for (const d of records) {
-          const yes = p === 'default' ? d.defaultSelected : p === 'spreadsheet' ? d.inputSelected : p === 'raw' ? d.collection === 'Open SciVis' : p === 'lanl' ? d.collection === 'LANL Oceans 11' : p === 'packages' ? d.packaging !== 'Remote' && d.id !== 'SV056' && d.id !== 'SV045' : false;
-          if (yes) select(d.id, true)
-        }
-        render()
+      for (const id of ['collection', 'evidence', 'units']) $(id).addEventListener('change', () => {
+        render(true)
       });
-      $('select-visible').onclick = () => {
+      $('search').addEventListener('input', render);
+      $('select-all').onclick = () => {
         state.visible.forEach(d => select(d.id, true));
-        $('preset').value = 'custom';
         render()
       };
-      $('clear-visible').onclick = () => {
+      $('deselect-all').onclick = () => {
         state.visible.forEach(d => select(d.id, false));
-        $('preset').value = 'custom';
         render()
-      };
-      $('collapse').onclick = () => {
-        state.open.clear();
-        render()
-      };
-      $('reset-filters').onclick = () => {
-        $('search').value = '';
-        $('collection').value = '';
-        $('evidence').value = '';
-        $('selected-only').checked = false;
-        $('sort').value = 'name';
-        render()
-      };
-      $('export').onclick = () => {
-        const selected = records.filter(d => state.selected.has(d.id)).map(d => ({
-            ...d,
-            quantity: qty(d)
-          })),
-          out = {
-            catalogVersion: catalog.version,
-            checkedUTC: catalog.checkedUTC,
-            reportedSizesCheckedUTC: catalog.reportedSizesCheckedUTC,
-            sourceSizeAuditUTC: catalog.sourceSizeAuditUTC,
-            sourceSizeAuditSummary: catalog.sourceSizeAuditSummary,
-            exportedUTC: new Date().toISOString(),
-            totals: window.currentTotals,
-            methodology: catalog.methodology,
-            records: selected
-          };
-        const url = URL.createObjectURL(new Blob([JSON.stringify(out, null, 2)], {
-          type: 'application/json'
-        }));
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'scivis-selected-plan.json';
-        a.click();
-        setTimeout(() => URL.revokeObjectURL(url), 1000)
       };
       for (const c of [...new Set(records.map(d => d.collection))].sort()) $('collection').insertAdjacentHTML('beforeend', `<option>${escape(c)}</option>`);
+      // Set controls and selection from the same defaults, including after reload.
+      for (const [id, value] of Object.entries(defaultFilters)) $(id).value = value;
+      $('units').value = 'decimal';
       render();
     </script>
   </body>
